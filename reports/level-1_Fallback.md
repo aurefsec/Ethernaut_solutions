@@ -7,6 +7,7 @@ Look carefully at the contract's code below.
 You will beat this level if
 
    1.you claim ownership of the contract
+
    2.you reduce its balance to 0
 
   Things that might help
@@ -31,7 +32,7 @@ So to retrieve the ownership i had to follow these steps:
 1. Retrieve 1 ether and send 0.0001 ether using `contribute()` function -> makes me become a
 contributor.
 
-2. Use `Call()` to call the `receive()` function and send 0.0001 ether -> makes me become a owner.
+2. Use `Call()` to call the `receive()` function and send 0.0001 ether -> makes me become an owner.
 
 The last goal was to retrieve all the ether of the contract. It will be done easily by using the
 `withdraw()` function which can be call only by owner and allows him to retrieve all the
