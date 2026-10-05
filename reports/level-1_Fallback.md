@@ -40,3 +40,7 @@ contributor.
 The last goal was to retrieve all the ether of the contract. It will be done easily by using the
 `withdraw()` function which can be call only by owner and allows him to retrieve all the
 ether.
+
+## What to remember
+
+All the functions that allow to become owner must be secure and perfectly thought out.
