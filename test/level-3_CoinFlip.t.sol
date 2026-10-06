@@ -3,9 +3,9 @@ pragma solidity ^0.8.0;
 
 import {Test} from "lib/forge-std/src/Test.sol";
 import {console} from "lib/forge-std/src/console.sol";
-import {CoinFlip} from "../src/level-3_Coin-Flip.sol";
+import {CoinFlip} from "../src/level-3_CoinFlip.sol";
 
-contract CoinFlipExploir is Test
+contract CoinFlipExploit is Test
 {
   CoinFlip cf;
 
