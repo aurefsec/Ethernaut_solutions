@@ -6,10 +6,6 @@ This is a coin flipping game where you need to build up your winning streak by g
 of a coin flip. To complete this level you'll need to use your psychic abilities to guess the
 correct outcome 10 times in a row.
 
-Things that might help:
-
-- See the "?" page above in the top right corner menu, section "Beyond the console"
-
 ## Solution
 
 The third level was interesting. Just one function can be called, the `flip()` function. This one
@@ -21,7 +17,7 @@ incremented and the goal of this level is to have 10 consecutive wins. To find t
 had to understand that a block is public and can be checked by everybody. If the block is public 
 and the factor is public too, I can determine the result of the divide. Each block is created every 12 
 seconds, I can wait for the next block to make the new calculation, determine the boolean and send 
-it to the `flip()` function. So to have 10 consecutive wins I have to follow these steps:
+it to the `flip()` function. So to have 10 consecutive wins I followed these steps:
 
 1. Retrieve the factor from the code source of the contract.
 

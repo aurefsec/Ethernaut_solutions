@@ -10,16 +10,6 @@ You will beat this level if:
 
 2. You reduce its balance to 0
 
-Things that might help:
-
-- How to send ether when interacting with an ABI
-
-- How to send ether outside of the ABI
-
-- Converting to and from wei/ether units (see help() command)
-
-- Fallback methods
-
 ## Solution
 
 To resolve this first level, I had to read the code and understand what part of the code could
@@ -30,7 +20,7 @@ best to use for claiming ownership. The best is the function `receive()`, becaus
 impossible to use. The condition to claim ownership is to use `receive()` by sending an amount > 0
 ether and being in the mapping `contributions`. The first part of the function `contribute` does 
 exactly what I want, the `msg.sender` can become a contributor by sending an amount < 0.001 ether.
-So to retrieve the ownership i had to follow these steps:
+So to retrieve the ownership I followed these steps:
 
 1. Retrieve 1 ether and send 0.0001 ether using `contribute()` function -> makes me become a
 contributor.
