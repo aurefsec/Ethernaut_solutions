@@ -1,4 +1,4 @@
-# Coin Flip
+# Telephone
 
 ## Instructions 
 
