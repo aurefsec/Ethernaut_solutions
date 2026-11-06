@@ -5,15 +5,17 @@ contract Token {
     mapping(address => uint256) balances;
     uint256 public totalSupply;
 
-    constructor(uint256 _initialSupply) public {
+    constructor(uint256 _initialSupply) {
         balances[msg.sender] = totalSupply = _initialSupply;
     }
 
     function transfer(address _to, uint256 _value) public returns (bool) {
+      unchecked {
         require(balances[msg.sender] - _value >= 0);
         balances[msg.sender] -= _value;
         balances[_to] += _value;
-        return true;
+      }
+      return true;
     }
 
     function balanceOf(address _owner) public view returns (uint256 balance) {
