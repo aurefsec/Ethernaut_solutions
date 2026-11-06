@@ -7,6 +7,8 @@ import {CoinFlip} from "../src/level-3_CoinFlip.sol";
 
 contract CoinFlipExploit is Test
 {
+  error notEnoughWin();
+
   CoinFlip cf;
 
   function setUp() public
@@ -30,6 +32,7 @@ contract CoinFlipExploit is Test
 
       vm.roll(block.number + 1);
     }
-    console.log(cf.consecutiveWins());
+    if (cf.consecutiveWins() != 10)
+      revert notEnoughWin();
   }
 }
